@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>textFormatter.app</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <section>
+      <form action="">
+        <label for="text">Text formatter</label>
+        <input name="text" id="input" type="text" />
+        <button type="submit" id="button">Format!</button>
+        <div id="box"></div>
+      </form>
+    </section>
+    <script>
+      // ''gh
+      const button = document.getElementById("button");
+
+      button.addEventListener("click", (e) => {
+        e.preventDefault();
+
+        const input = document.getElementById("input").value;
+
+        console.log(input);
+
+        if (input == "") {
+          const messae = "Please Input a value!";
+          alert(messae);
+        } else {
+          function makeBold() {
+            console.log(input.bold());
+
+            const upper = input.bold();
+            const newBg = document.createElement("div");
+
+            (newBg.style.display = "flex"),
+              (newBg.style.justifyContent = "center"),
+              (newBg.style.alignItems = "center"),
+              (newBg.style.color = "Black"),
+              (newBg.style.width = "170px"),
+              (newBg.style.height = "50px"),
+              (newBg.style.borderRadius = "20px"),
+              (newBg.style.fontSize = "30px"),
+              (newBg.innerHTML = `${upper}`);
+
+            box.appendChild(newBg);
+          }
+
+          makeBold();
+
+          function makeCapital() {
+            const upper = input.toUpperCase();
+            const newBg = document.createElement("div");
+
+            (newBg.style.display = "flex"),
+              (newBg.style.justifyContent = "center"),
+              (newBg.style.alignItems = "center"),
+              (newBg.style.color = "Black"),
+              (newBg.style.width = "170px"),
+              (newBg.style.height = "50px"),
+              (newBg.style.borderRadius = "20px"),
+              (newBg.style.fontSize = "30px"),
+              (newBg.textContent = `${upper}`);
+
+            box.appendChild(newBg);
+          }
+
+          makeCapital();
+
+          function changeBackround() {
+            const box = document.getElementById("box");
+            const newBg = document.createElement("div");
+
+            (newBg.style.display = "flex"),
+              (newBg.style.justifyContent = "center"),
+              (newBg.style.alignItems = "center"),
+              (newBg.style.background = "red"),
+              (newBg.style.color = "white"),
+              (newBg.style.width = "170px"),
+              (newBg.style.height = "50px"),
+              (newBg.style.borderRadius = "20px"),
+              (newBg.style.fontSize = "30px"),
+              (newBg.textContent = input);
+
+            newBg.textContent = `${input}`;
+
+            box.appendChild(newBg);
+          }
+
+          changeBackround();
+        }
+      });
+    </script>
+  </body>
+</html>
